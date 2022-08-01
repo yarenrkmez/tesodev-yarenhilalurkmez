@@ -6,9 +6,10 @@ $bordered-primary-color: #ffefe5;
 $bordered-color: #f5f5f5;
 $solid-default-color: #f0f0f0;
 $ghost-primary-color: #f5f5f5;
-
 $success-color: #008a09;
 $danger-color: #fa0000;
+
+$navbar-color: #545b62;
 
 $transparent: transparent;
 
@@ -30,5 +31,21 @@ $large-maring: 37px;
     }
     &:disabled {
         background: $disabled;
+    }
+}
+
+@mixin flex-formatter($justify: null, $align: null, $direction: null, $flex: null) {
+    display: flex;
+    @if ($justify) {
+        justify-content: $justify;
+    }
+    @if ($align) {
+        align-items: $align;
+    }
+    @if ($direction) {
+        flex-direction: $direction;
+    }
+    @if ($flex) {
+        flex: $flex;
     }
 }

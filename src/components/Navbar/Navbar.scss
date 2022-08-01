@@ -1,0 +1,23 @@
+@import "../../assets/Variables.scss";
+
+.navbar {
+    overflow: hidden;
+    background-color: $navbar-color;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 15px;
+        li {
+            display: inline;
+            font-size: 17px;
+            a {
+                color: #f2f2f2;
+                text-decoration: none;
+                padding: 14px;
+            }
+        }
+    }
+}

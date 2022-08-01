@@ -1,0 +1,6 @@
+@import "../../assets/Variables.scss";
+
+
+.home-page {
+    @include flex-formatter(null, null, column);
+}
