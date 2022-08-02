@@ -1,65 +1,113 @@
 @import "../../assets/Variables.scss";
 
-.primary-button {
-    @include button-variants($primary-color, #bf4800, #ff6000, #ff6000);
-}
-
-.variant-button {
-    @include button-variants($variant-color, #ffbf99, #ffefe5, #ffefe5);
-}
-
-.secondary-button {
-    @include button-variants($seconary-color, #5365bf, #6b83fa, #6b83fa);
-}
-
-.bordered-primary-button {
-    @include button-variants($bordered-primary-color, #ffefe5, #ffefe5, #f5f5f5);
-}
-
-.bordered-default-button {
-    @include button-variants($transparent, #dadada, #ffefe5, #dadada);
-}
-
-.ghost-primary-button {
-    @include button-variants($transparent, rgba(255, 255, 255, 0.01), #f5f5f5, #f5f5f5);
-}
-
-.ghost-default-button {
-    @include button-variants($transparent, #f0f0f0, rgba(255, 255, 255, 0.01), $transparent);
-}
-
-.success-button {
-    @include button-variants($success-color, #006907, #008a09, #008a09);
-}
-
-.danger-button {
-    @include button-variants($danger-color, #bf0000, #fa0000, #fa0000);
-}
 .app-button {
     transition: all 0.3s ease;
-    border: 0;
-
     justify-content: center;
     align-items: center;
-    padding: 0px;
 
-    border-radius: 8px;
-
-    width: 58px;
-
+    width: auto;
     display: flex;
 
     &__title {
         font-family: "Inter";
         font-style: normal;
         font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
 
         text-align: center;
         letter-spacing: -0.025em;
-        padding: 12px 16px;
 
-        color: #ffffff;
+        &--right {
+            margin-right: 10px;
+        }
+    }
+
+    &--primary {
+        @include button-variants($primary-color, #bf4800, #ff6000, #ff904c, #ff6000, null, rgba(108, 132, 250, 0.2));
+        @include button-variants-title(#ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
+    }
+
+    &--variant {
+        @include button-variants(
+            $variant-color,
+            #ffbf99,
+            #ffefe5,
+            transparent,
+            #ffefe5,
+            null,
+            rgba(108, 132, 250, 0.2)
+        );
+        @include button-variants-title(#ff6000, #bf4800, #ff6000, #ff6000, #ff6000, #ff6000);
+    }
+
+    &--secondary {
+        @include button-variants($seconary-color, #5365bf, #6b83fa, #99aaff, #6b83fa, rgba(108, 132, 250, 0.2));
+        @include button-variants-title(#ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
+    }
+
+    &--bordered-primary {
+        @include button-variants(
+            transparent,
+            #ffefe5,
+            #ffefe5,
+            transparent,
+            transparent,
+            #ff6000,
+            rgba(108, 132, 250, 0.2)
+        );
+        @include button-variants-title(#ff6000, #ff6000, #ff6000, #ff904c, #ff6000, #ff6000);
+        @include button-variants-border(#ff6000, #ff6000, #ff6000, #ff904c, #ff6000);
+        @include button-variants-icon(#ff6000, #ff6000, #ff6000, #ff904c, #ff6000);
+    }
+
+    &--bordered-default {
+        @include button-variants(
+            transparent,
+            #f0f0f0,
+            rgba(108, 132, 250, 0.2),
+            transparent,
+            transparent,
+            #dadada,
+            rgba(108, 132, 250, 0.2)
+        );
+        @include button-variants-title(#212121, #212121, #212121, #666666, #666666);
+        @include button-variants-icon(#8c8c8c, #8c8c8c, #8c8c8c, #484848, #484848);
+    }
+
+    &--solid-default {
+        @include button-variants(#f0f0f0, #f0f0f0, #f0f0f0, #f0f0f0, #f0f0f0, null, rgba(108, 132, 250, 0.2));
+        @include button-variants-title(#212121, #212121, #212121, #666666, #666666, #666666);
+    }
+    &--ghost-primary {
+        @include button-variants(transparent, #f0f0f0, rgba(108, 132, 250, 0.2), transparent, transparent);
+        @include button-variants-title(#ff6000, #ff6000, #ff6000, #ff904c, #ff6000, #ff6000);
+        @include button-variants-icon(#ff6000, #ff6000, #ff6000, #ff904c, #ff6000);
+    }
+
+    &--ghost-default {
+        @include button-variants(transparent, #f0f0f0, rgba(108, 132, 250, 0.2), transparent, transparent);
+        @include button-variants-title(#212121, #212121, #212121, #666666, #212121, #8c8c8c);
+    }
+
+    &--success {
+        @include button-variants($success-color, #006907, #008a09, #36b23e, #008a09, null, rgba(108, 132, 250, 0.2));
+        @include button-variants-title(#ffffff, #ffffff, #ffffff, #ffffff);
+    }
+
+    &--danger {
+        @include button-variants($danger-color, #bf0000, #fa0000, #ff4c4c, #fa0000, null, rgba(108, 132, 250, 0.2));
+        @include button-variants-title(#ffffff, #ffffff, #ffffff, #ffffff);
+    }
+
+    &--large {
+        @extend %large-button;
+    }
+    &--default {
+        @extend %default-button;
+    }
+    &--small {
+        @extend %small-button;
+    }
+    &--tiny {
+        @extend %tiny-button;
     }
 }

@@ -8,13 +8,17 @@ import {
 
 /** Screens */
 import HomePage from './screens/HomePage/HomePage';
+import ButtonsPage from './screens/ButtonsPage/ButtonsPage';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/buttons" element={<ButtonsPage />} />
         </Routes>
       </Router>
     </div>

@@ -18,8 +18,47 @@ $small-margin: 7px;
 $medium-margin: 17px;
 $large-maring: 37px;
 
+// Size variants
+%large-button {
+    padding: 16px 24px;
+    font-size: 16px;
+}
+
+%default-button {
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+%small-button {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+%tiny-button {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
 // Mixins
-@mixin button-variants($enable: null, $hover: null, $focus: null, $disabled: null) {
+@mixin button-variants(
+    $enable: null,
+    $hover: null,
+    $focus: null,
+    $active: null,
+    $disabled: null,
+    $border: null,
+    $shadow: null
+) {
+    margin: 10px 0;
+
+    @if ($border) {
+        border: 2px solid $border;
+        border-radius: 8px;
+    } @else {
+        border: none;
+        border-radius: 8px;
+    }
+
     &:enabled {
         background: $enable;
     }
@@ -28,9 +67,16 @@ $large-maring: 37px;
     }
     &:focus {
         background: $focus;
+        @if ($shadow) {
+            box-shadow: 0px 0px 0px 3px $shadow;
+        }
+    }
+    &:active {
+        background: $active;
     }
     &:disabled {
         background: $disabled;
+        opacity: 0.3;
     }
 }
 
@@ -47,5 +93,102 @@ $large-maring: 37px;
     }
     @if ($flex) {
         flex: $flex;
+    }
+}
+
+@mixin button-variants-title(
+    $enable: null,
+    $hover: null,
+    $focus: null,
+    $active: null,
+    $disabled: null,
+    $icon-color: null
+) {
+    @if ($icon-color) {
+        svg {
+            path {
+                fill: $icon-color !important;
+            }
+        }
+    }
+
+    &:enabled {
+        color: $enable;
+    }
+    &:hover {
+        color: $hover;
+    }
+
+    &:focus {
+        color: $focus;
+    }
+
+    &:active {
+        color: $active;
+    }
+    &:disabled {
+        color: $disabled;
+    }
+}
+
+@mixin button-variants-icon($enable: null, $hover: null, $focus: null, $active: null, $disabled: null) {
+    &:enabled {
+        svg {
+            path {
+                fill: $enable !important;
+            }
+        }
+    }
+
+    &:hover {
+        svg {
+            path {
+                fill: $hover !important;
+            }
+        }
+    }
+
+    &:focus {
+        svg {
+            path {
+                fill: $focus !important;
+            }
+        }
+    }
+
+    &:active {
+        svg {
+            path {
+                fill: $active !important;
+            }
+        }
+    }
+    &:disabled {
+        svg {
+            path {
+                fill: $disabled !important;
+            }
+        }
+    }
+}
+
+@mixin button-variants-border($enable: null, $hover: null, $focus: null, $active: null, $disabled: null) {
+    &:enabled {
+        border-color: $enable !important;
+    }
+
+    &:hover {
+        border-color: $hover !important;
+    }
+
+    &:focus {
+        border-color: $focus !important;
+    }
+
+    &:active {
+        border-color: $active !important;
+    }
+    &:disabled {
+        border-color: $disabled !important;
     }
 }

@@ -13,7 +13,7 @@ type Props = {}
 const HomePage = (props: Props) => {
     return (
         <div className="home-page">
-            <Navbar />
+            <h1>Home</h1>
 
         </div>
     )
