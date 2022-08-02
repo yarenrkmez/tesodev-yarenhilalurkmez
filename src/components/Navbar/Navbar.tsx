@@ -11,7 +11,7 @@ const Navbar = (props: Props) => {
         <div className="navbar">
             <nav>
                 <ul>
-                    <li><a href="#">Buttons</a></li>
+                    <li><a href="/buttons">Buttons</a></li>
                 </ul>
             </nav>
         </div>

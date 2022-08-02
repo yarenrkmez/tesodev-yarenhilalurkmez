@@ -1,15 +1,23 @@
 /** Dependencies */
-import React from 'react'
+import React from 'react';
+
+/** Constats */
 import { ButtonText } from '../../assets/constants/ButtonText';
-import SettingsIcon from '../../assets/icons/components/SettingsIcon';
+
+/** Components */
 import Button from '../../components/Button/Button';
+import ButtonCircle from '../../components/Button/ButtonCircle';
+import ButtonGroup from '../../components/Button/ButtonGroup';
 
 /** Style */
 import '../ButtonsPage/Buttons.scss';
 
 /** Icons */
 import CloseIcon from '../../assets/icons/components/CoseIcon';
-import ButtonCircle from '../../components/Button/ButtonCircle';
+import HeartIcon from '../../assets/icons/components/HeartIcon';
+import DownArrowIcon from '../../assets/icons/components/DownArrowIcon';
+import SettingsIcon from '../../assets/icons/components/SettingsIcon';
+
 
 type Props = {}
 
@@ -34,10 +42,27 @@ const ButtonsPage = ({ }: Props) => {
         )
     }
 
+    const heartIcon = (color?: string) => {
+        return (
+            <HeartIcon
+                color={color}
+            />
+        )
+    }
+
+    const downIcon = (color?: string) => {
+        return (
+            <DownArrowIcon
+                color={color}
+            />
+        )
+    }
+
     return (
-        <div>
-            <h1>Default Buttons</h1>
-            <div className='buttons-container'>
+        <div className="buttons-page-container">
+            <h2>Default Buttons</h2>
+
+            <div className='buttons-page-container__buttons-container'>
                 <div>
                     <Button
                         title={ButtonText.primaryBtn}
@@ -207,8 +232,8 @@ const ButtonsPage = ({ }: Props) => {
 
             </div>
 
-            <h1>Small Buttons</h1>
-            <div className='buttons-container'>
+            <h2>Small Buttons</h2>
+            <div className='buttons-page-container__buttons-container'>
                 <div>
                     <Button
                         title={ButtonText.primaryBtn}
@@ -401,14 +426,70 @@ const ButtonsPage = ({ }: Props) => {
 
             </div>
 
-            <h1>Circle Buttons</h1>
-            <div className='buttons-container'>
+            <h2>Circle Buttons</h2>
+            <div className='buttons-page-container__buttons-container'>
                 <ButtonCircle
                     icon={closeIcon('#666666')}
                 />
                 <ButtonCircle
                     icon={closeIcon('#666666')}
                 />
+            </div>
+
+            <h2>Button Group</h2>
+            <div className='buttons-page-container__buttons-container'>
+
+                <ButtonGroup
+                    title={ButtonText.addListBtn}
+                    variant='addList'
+                    icon={
+                        heartIcon()
+
+                    }
+                    iconRight={
+                        downIcon()
+                    }
+                    size="large"
+                />
+
+                <ButtonGroup
+                    title={ButtonText.addListBtn}
+                    variant='addList'
+                    icon={
+                        heartIcon()
+
+                    }
+                    iconRight={
+                        downIcon()
+                    }
+                    size="small"
+                />
+
+                <ButtonGroup
+                    title={ButtonText.likeBtn}
+                    icon={
+                        downIcon()
+
+                    }
+                    iconRight={
+                        heartIcon()
+                    }
+
+                />
+
+                <ButtonGroup
+                    title={ButtonText.likeBtn}
+                    icon={
+                        downIcon()
+
+                    }
+                    iconRight={
+                        heartIcon()
+                    }
+                    size="small"
+
+                />
+
             </div>
         </div>
     )

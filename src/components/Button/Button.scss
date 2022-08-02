@@ -134,3 +134,72 @@
         @extend %tiny-button;
     }
 }
+
+.button-group {
+    display: flex;
+
+    &--like {
+        flex-direction: row-reverse;
+    }
+
+    &__right-icon {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin-left: 10px;
+    }
+
+    &__title {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: -0.025em;
+        color: #212121;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        border: 2px solid #dadada;
+        color: white;
+        cursor: pointer;
+        float: left;
+
+        &--addlist {
+            &:nth-last-child(2) {
+                border-radius: 8px 0 0 8px !important;
+                border-right-width: 0;
+            }
+            &:nth-last-child(1) {
+                border-radius: 0 8px 8px 0 !important;
+            }
+        }
+
+        &--like {
+            &:nth-last-child(1) {
+                border-radius: 8px 0 0 8px !important;
+                border-right-width: 0;
+            }
+            &:nth-last-child(2) {
+                border-radius: 0 8px 8px 0 !important;
+            }
+        }
+
+        &--large {
+            @extend %large-button;
+        }
+        &--default {
+            @extend %default-button;
+        }
+        &--small {
+            @extend %small-button;
+        }
+        &--tiny {
+            @extend %tiny-button;
+        }
+    }
+}

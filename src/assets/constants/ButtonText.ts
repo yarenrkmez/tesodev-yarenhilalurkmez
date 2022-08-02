@@ -8,5 +8,7 @@ export const ButtonText = {
     ghostPrimaryBtn: "Ghost Primary",
     ghostDefaultBtn: "Ghost Default",
     successBtn: "Success",
-    danger: "Danger"
+    danger: "Danger",
+    addListBtn: "Add List",
+    likeBtn: "Like"
 }
