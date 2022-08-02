@@ -111,3 +111,26 @@
         @extend %tiny-button;
     }
 }
+
+.circle-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: none;
+
+    background: #f0f0f0;
+    border-radius: 40px;
+
+    &--large {
+        @extend %large-button;
+    }
+    &--default {
+        @extend %default-button;
+    }
+    &--small {
+        @extend %small-button;
+    }
+    &--tiny {
+        @extend %tiny-button;
+    }
+}
